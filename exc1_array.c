@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 int arrayfunction(int *index){
     int soma = 0;
