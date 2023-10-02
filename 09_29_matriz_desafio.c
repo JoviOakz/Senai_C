@@ -28,7 +28,7 @@ void gameplay(char mat[3][3]){
                 while((getchar()) != '\n');
 
                 if(jlin < 1 || jlin > 3){
-                    printf("Erro!\n\n");
+                    printf("Erro!!\n\n");
                 }
             }while(jlin < 1 || jlin > 3);
 
@@ -40,14 +40,14 @@ void gameplay(char mat[3][3]){
                 while((getchar()) != '\n');
 
                 if(jcol < 1 || jcol > 3){
-                    printf("Erro!\n\n");
+                    printf("Erro!!\n\n");
                 }
             }while(jcol < 1 || jcol > 3);
 
             col = jcol - 1;
 
             if(mat[lin][col] == 'X' || mat[lin][col] == 'O'){
-                printf("Este espaco ja esta ocupado!\n\n");
+                printf("Este espaco ja esta ocupado!!\n\n");
             }
             else if(mat[lin][col] != 'X' && mat[lin][col] != 'O'){
                 mat[lin][col] = 'X';
@@ -79,7 +79,7 @@ void gameplay(char mat[3][3]){
                 while((getchar()) != '\n');
 
                 if(jlin < 1 || jlin > 3){
-                    printf("Erro!\n\n");
+                    printf("Erro!!\n\n");
                 }
             }while(jlin < 1 || jlin > 3);
 
@@ -91,14 +91,14 @@ void gameplay(char mat[3][3]){
                 while((getchar()) != '\n');
 
                 if(jcol < 1 || jcol > 3){
-                    printf("Erro!\n\n");
+                    printf("Erro!!\n\n");
                 }
             }while(jcol < 1 || jcol > 3);
 
             col = jcol - 1;            
 
             if(mat[lin][col] == 'X' || mat[lin][col] == 'O'){
-                printf("Este espaco ja esta ocupado!\n\n");
+                printf("Este espaco ja esta ocupado!!\n\n");
             }
             else if(mat[lin][col] != 'X' && mat[lin][col] != 'O'){
                 mat[lin][col] = 'O';
@@ -121,12 +121,12 @@ int end(char mat[3][3], int cond){
     for(int i = 0; i < 3; i++){
         if(mat[i][0] == mat[i][1] && mat[i][0] == mat[i][2]){
             if(mat[i][0] == 'X'){
-                printf("Jogador 1 Venceu!\n");
+                printf("Jogador 1 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
             else if(mat[i][0] == 'O'){
-                printf("Jogador 2 Venceu!\n");
+                printf("Jogador 2 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
@@ -136,12 +136,12 @@ int end(char mat[3][3], int cond){
     for(int i = 0; i < 3; i++){
         if(mat[0][i] == mat[1][i] && mat[0][i] == mat[2][i]){
             if(mat[0][i] == 'X'){
-                printf("Jogador 1 Venceu!\n");
+                printf("Jogador 1 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
             else if(mat[0][i] == 'O'){
-                printf("Jogador 2 Venceu!\n");
+                printf("Jogador 2 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
@@ -151,12 +151,12 @@ int end(char mat[3][3], int cond){
     for(int i = 0; i < 3; i++){
         if(mat[0][0] == mat[1][1] && mat[0][0] == mat[2][2]){
             if(mat[0][0] == 'X'){
-                printf("Jogador 1 Venceu!\n");
+                printf("Jogador 1 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
             else if(mat[0][0] == 'O'){
-                printf("Jogador 2 Venceu!\n");
+                printf("Jogador 2 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
@@ -166,12 +166,12 @@ int end(char mat[3][3], int cond){
     for(int i = 0; i < 3; i++){
         if(mat[0][2] == mat[1][1] && mat[0][2] == mat[2][0]){
             if(mat[0][2] == 'X'){
-                printf("Jogador 1 Venceu!\n");
+                printf("Jogador 1 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
             else if(mat[0][2] == 'O'){
-                printf("Jogador2 Venceu!\n");
+                printf("Jogador2 Venceu!!\n");
                 cond = 0;
                 return cond;
             }
