@@ -183,6 +183,7 @@ int main(){
     char mat[3][3] = {{'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'}};
 
     print(mat);
+    
     gameplay(mat);
 
     return 0;
