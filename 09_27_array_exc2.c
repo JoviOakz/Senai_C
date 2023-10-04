@@ -9,7 +9,7 @@ void inverteVetor(char *palavra){
 int main(){
     char arr[10] = {"Seboso"};
 
-    inverteVetor(&arr);
+    inverteVetor(arr);
 
     return 0;
 }

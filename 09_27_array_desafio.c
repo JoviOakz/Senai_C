@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void ordenaVet(int* array){
+void ordenaVetor(int* array){
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 5; j++){
             if(array[j] > array[j+1]){
@@ -19,7 +19,7 @@ void ordenaVet(int* array){
 int main(){
     int arr[5] = {4, 2, 8, 23, 3};
 
-    ordenaVet(arr);
+    ordenaVetor(arr);
 
     return 0;
 }

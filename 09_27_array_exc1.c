@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void imprimeVet(int *array){
+void imprimeVetor(int *array){
     for(int i = 0; i < 3; i++){
         printf("%d ", array[i]);
     }
@@ -9,7 +9,7 @@ void imprimeVet(int *array){
 int main(){
     int arr[3] = {33, 21, 76};
 
-    imprimeVet(&arr);
+    imprimeVetor(arr);
 
     return 0;
 }

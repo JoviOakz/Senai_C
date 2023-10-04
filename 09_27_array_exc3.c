@@ -19,7 +19,7 @@ int main(){
     int arr_1[3] = {4, 7, 12};
     int arr_2[3] = {6, 9, 3};
 
-    difAbsoluta(&arr_1, &arr_2);
+    difAbsoluta(arr_1, arr_2);
 
     return 0;
 }
