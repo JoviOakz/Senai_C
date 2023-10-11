@@ -2,24 +2,47 @@
 
 typedef struct agenda_t
 {
-    char nome;
-    int ddd;
-    int numero;
+    char nome[70];
+    char ddd[10];
+    char numero[20];
 }Agenda;
 
-void cadastrarNumero(){
-    
+void cadastrarContato(Agenda *pessoa, int index){
+    printf("Insira o nome: ");
+    scanf("%s", pessoa[index].nome);
+    while(getchar() != '\n');
+
+    printf("DDD: ");
+    scanf("%s", pessoa[index].ddd);
+    while(getchar() != '\n');
+
+    printf("Numero: ");
+    scanf("%s", pessoa[index].numero);
+    while(getchar() != '\n');
+
+
+
+
+    index++;
+}
+
+void procurarContato(){
+
 }
 
 int main(){
-    int op = 9;
+    int tamanho = 50, quant_elem = 0, index = 0, op = 9;
 
-    Agenda *pessoa;
+    Agenda *pessoa = malloc(tamanho * sizeof(Agenda));
+
+    FILE * lista;
+
+    lista = fopen("lista_telefonica.txt", "w");
 
     while(op != 0){
         printf("----------Agenda Telefonica----------\n");
-        printf("[1] - Cadastrar\n");
-        printf("[2] - Procurar\n");
+        printf("[1] - Cadastrar contato\n");
+        printf("[2] - Procurar contato\n");
         printf("[0] - Sair");
         printf("> ");
         scanf("%d", &op);
@@ -31,11 +54,18 @@ int main(){
             break;
 
             case 1:
-                cadastrarNumero(pessoa);
+                if(quant_elem + 1 == tamanho){
+                    tamanho *= 2;
+                    realloc(pessoa, tamanho);
+                }
+
+                cadastrarContato(pessoa, index);
+
+                quant_elem++;
             break;
 
             case 2:
-                procurarPessoa(pessoa);
+                procurarContato(pessoa);
             break;
 
             default:
@@ -43,6 +73,8 @@ int main(){
             break;
         }
     }
+
+    free(pessoa);
 
     return 0;
 }
