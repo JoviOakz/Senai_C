@@ -1,0 +1,18 @@
+|| Carro 1 ||
+Modelo: a
+Fabricante: a
+Marca: a
+Cor: a
+
+|| Carro 2 ||
+Modelo: b
+Fabricante: b
+Marca: b
+Cor: b
+
+|| Carro 3 ||
+Modelo: c
+Fabricante: c
+Marca: c
+Cor: c
+

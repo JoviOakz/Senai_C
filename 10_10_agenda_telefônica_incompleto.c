@@ -8,73 +8,67 @@ typedef struct agenda_t
     char numero[20];
 }Agenda;
 
-void cadastrarContato(Agenda *pessoa, int index, FILE *lista){
+void cadastrarContato(Agenda pessoa, FILE *lista){
     printf("Insira o nome: ");
-    scanf("%s", pessoa[index].nome);
+    scanf(" %s", pessoa.nome);
     while(getchar() != '\n');
 
     printf("DDD: ");
-    scanf("%s", pessoa[index].ddd);
+    scanf(" %s", pessoa.ddd);
     while(getchar() != '\n');
 
     printf("Numero: ");
-    scanf("%s", pessoa[index].numero);
+    scanf(" %s", pessoa.numero);
     while(getchar() != '\n');
+
+    printf("\n");
 
     lista = fopen("lista_telefonica.txt", "a");
 
-    fprintf(lista, "Nome: %s\nNumero: (%s) %s\n", pessoa[index].nome, pessoa[index].ddd, pessoa[index].numero);
+    fprintf(lista, "Contato: %s (%s) %s\n\n", pessoa.nome, pessoa.ddd, pessoa.numero);
 
     fclose(lista);
-
-    index++;
 }
 
-void procurarContato(Agenda *pessoa, FILE *lista){
+void procurarContato(Agenda pessoa, FILE *lista){
     char check_nome[70];
-    char check_ddd[10];
-    char check_numero[20];
+    int aux = 0;
 
-    printf("Insira o nome: ");
-    scanf("%s", pessoa[index].nome);
-    while(getchar() != '\n');
-
-    printf("DDD: ");
-    scanf("%s", pessoa[index].ddd);
-    while(getchar() != '\n');
-
-    printf("Numero: ");
-    scanf("%s", pessoa[index].numero);
+    printf("Insira o nome a ser buscado: ");
+    scanf(" %s", check_nome);
     while(getchar() != '\n');
 
     lista = fopen("lista_telefonica.txt", "r");
 
-    if(lista != NULL){
-        strncmp();
+    while(fscanf(lista, "%s %s %s", pessoa.nome, pessoa.ddd, pessoa.numero) != EOF){
+        if(strcmp(pessoa.nome, check_nome) == 0){
+            printf("|| Contato encontrado ||\n");
+            printf("Nome: %s\n", pessoa.nome);
+            printf("Telefone: (%s) %s\n\n", pessoa.ddd, pessoa.numero);
+
+            aux = 1;
+        }
     }
-    else{
-        printf("Lista vazia!\n");
+
+    if(aux == 0){
+        printf("Contato nao encontrado!\n\n");
     }
 
     fclose(lista);
 }
 
 int main(){
-    int tamanho = 50, quant_elem = 0, index = 0, op = 9;
+    int op = 9;
 
-    Agenda *pessoa = malloc(tamanho * sizeof(Agenda));
+    Agenda pessoa;
 
     FILE * lista;
-
-    lista = fopen("lista_telefonica.txt", "w");
-
-    fclose(lista);
 
     while(op != 0){
         printf("----------Agenda Telefonica----------\n");
         printf("[1] - Cadastrar contato\n");
         printf("[2] - Procurar contato\n");
-        printf("[0] - Sair");
+        printf("[0] - Sair\n");
         printf("> ");
         scanf("%d", &op);
         while(getchar() != '\n');
@@ -85,14 +79,7 @@ int main(){
             break;
 
             case 1:
-                if(quant_elem + 1 == tamanho){
-                    tamanho *= 2;
-                    realloc(pessoa, tamanho);
-                }
-
-                cadastrarContato(pessoa, index, lista);
-
-                quant_elem++;
+                cadastrarContato(pessoa, lista);
             break;
 
             case 2:
@@ -100,12 +87,10 @@ int main(){
             break;
 
             default:
-                printf("Erro! Tente novamente!\n");
+                printf("Erro! Tente novamente!\n\n");
             break;
         }
     }
-
-    free(pessoa);
 
     return 0;
 }
